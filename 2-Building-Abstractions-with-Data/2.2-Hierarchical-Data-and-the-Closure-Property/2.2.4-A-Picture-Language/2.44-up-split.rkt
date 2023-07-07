@@ -1,0 +1,13 @@
+#lang racket
+
+(require sicp-pict)
+
+(display "Please run this in DrRacket as terminal may not have capability to display images directly") (newline)
+
+(define (up-split painter n)
+	(if (= n 0)
+		painter
+		(let ((smaller (up-split painter (- n 1))))
+		(below painter (beside smaller smaller)))))
+
+(paint (up-split einstein 1))
