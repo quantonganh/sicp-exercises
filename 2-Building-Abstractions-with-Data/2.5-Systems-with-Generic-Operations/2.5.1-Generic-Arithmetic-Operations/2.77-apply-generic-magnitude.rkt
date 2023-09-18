@@ -1,18 +1,7 @@
 #lang racket
 
 (require racket/trace)
-
-(define dispatch-table '())
-
-(trace-define (put op type item)
-	(set! dispatch-table (cons (list (list op type) item) dispatch-table)))
-	
-(provide get)
-(trace-define (get op type)
-	(let ((entry (assoc (list op type) dispatch-table)))
-		(if entry
-			(cadr entry)
-			#f)))
+(require "../put-get-coercion.rkt")
 
 (trace-define (attach-tag type-tag contents)
 	(cons type-tag contents))
