@@ -1,7 +1,7 @@
 #lang racket/base
 (require racket/trace)
 (require racket/include)
-(include "2/list.rkt")
+(include "../../list.rkt")
 
 (define (find-even-odd items)
     (define (iter items even odd)
